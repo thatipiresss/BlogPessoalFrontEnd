@@ -17,8 +17,7 @@ function Home() {
                         <Button variant="outlined" className='botao'>Postagens</Button>
                     </Box>
                 </Grid>
-                <Grid xs={6} style={{backgroundImage: `url(https://i2.wp.com/multarte.com.br/wp-content/uploads/2020/09/logomarca-palmeiras3.jpg?resize=600%2C600&ssl=1)`,
-                backgroundRepeat: 'no-repeat', width: '100vh', minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center', backgroundColor: "#f1f2f6", margin: '0'}}></Grid>
+                <Grid xs={6} className= 'imagem2'></Grid>
                 
                 <Grid xs={12} className='postagens'>
                 </Grid>

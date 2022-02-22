@@ -5,15 +5,16 @@
 }
 
 .imagem{
-    background-image: url(https://i2.wp.com/multarte.com.br/wp-content/uploads/2020/09/logomarca-palmeiras3.jpg?resize=600%2C600&ssl=1);
+    background-image: url(https://static.wikia.nocookie.net/logopedia/images/2/2f/Palmeiras-1914-1.png/);
     background-repeat: no-repeat;
     width: 100vh;
     min-height: 100vh;
-    background-size: cover;
+    background-size: 400px;
     background-position: center;
     background-color: #ffffff;
-    margin: 0;
+
 }
 .text-decorator-none{
     text-decoration: none;
 }
+
