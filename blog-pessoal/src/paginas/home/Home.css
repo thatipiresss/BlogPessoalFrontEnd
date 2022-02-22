@@ -16,3 +16,25 @@
 .text-decorator-none{
     text-decoration: none;
 }
+
+.caixa{
+    background-color: #ffffff;
+    margin: 0;
+}
+
+.titulo{
+    color: green !important;
+    font-weight: bold !important;
+    text-decoration: none;
+}
+
+.botao{
+    border-color: green !important;
+    background-color: white !important;
+    color: green !important;
+}
+
+.postagens{
+    background-color: #ffffff;
+    margin: 0;
+}
