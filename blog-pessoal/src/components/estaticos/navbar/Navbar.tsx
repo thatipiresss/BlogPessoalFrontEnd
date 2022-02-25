@@ -27,16 +27,23 @@ function Navbar(){
                     
                         </Box>
                     </Link>
+
+                    <Link to= '/postagens' className='text-decorator-none'>
                     <Box mx={2} className='cursor'>
                         <Typography variant="h6" style={{color: "#009432", fontWeight: 'bold'}}>
                             Postagens
                         </Typography>
                     </Box>
+                    </Link>
+                    
+                    <Link to= '/temas' className='text-decorator-none'>
                     <Box mx={2} className='cursor'>
                         <Typography variant="h6" style={{color: "#009432", fontWeight: 'bold'}}>
                             Temas
                         </Typography>
+                        
                         </Box>
+                        </Link>
                     <Box mx={2} className='cursor'>
                         <Typography variant="h6"  style={{color: "#009432", fontWeight: 'bold'}}>
                             Cadastrar tema
