@@ -6,6 +6,7 @@ import './Home.css';
 import ModalPostagem from '../../components/postagens/modalPostagem/ModalPostagem';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../store/tokens/tokensReducer';
+import {Link} from 'react-router-dom';
 
 function Home() {
 
@@ -33,7 +34,9 @@ function Home() {
                         <Box marginRight={2}>
                             <ModalPostagem />
                         </Box>
-                        <Button variant="outlined" className='botao'>Postagens</Button>
+                        <Link to='/postagens' className='text-decorator-none'>
+                            <Button variant="outlined" className='botao'>Postagens</Button>
+                        </Link>
                     </Box>
                 </Grid>
                 <Grid xs={6} className= 'imagem2'></Grid>

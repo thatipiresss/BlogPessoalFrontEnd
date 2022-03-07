@@ -32,6 +32,10 @@
     border-color: green !important;
     background-color: white !important;
     color: green !important;
+   }
+
+.text-decorator-none{
+    text-decoration: none;
 }
 
 .postagens{
