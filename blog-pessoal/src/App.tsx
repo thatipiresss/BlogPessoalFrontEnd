@@ -11,14 +11,16 @@ import Home from './paginas/home/Home';
   import './App.css';
   import Login from './paginas/login/Login';
 import CadastroPost from './components/postagens/cadastroPost/CadastroPost';
-import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem'
+import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
 import CadastroTema from './components/temas/cadastroTema/CadastroTema';
-import DeletarTema from './components/temas/deletarTema/DeletarTema'
-
+import DeletarTema from './components/temas/deletarTema/DeletarTema';
+import {Provider} from 'react-redux';
+import store from './store/store';
 
 
 function App() {
   return (
+  <Provider store={store}>
     <Router>
     <Navbar />
       <Switch>
@@ -80,6 +82,7 @@ function App() {
       </Switch>
     <Footer />
   </Router>
+  </Provider>
 );
 }
 
