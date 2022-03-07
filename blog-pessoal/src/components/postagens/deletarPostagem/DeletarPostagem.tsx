@@ -5,6 +5,8 @@ import {useHistory, useParams} from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
 import Postagem from '../../../models/Postagem';
 import { buscaId, deleteId } from '../../../services/Service';
+import {toast} from 'react-toastify';
+
 
 function DeletarPostagem(){
 
@@ -15,7 +17,16 @@ function DeletarPostagem(){
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+                toast.error('Você precisa estar logado', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+                draggable: false, //mover a notificação de local
+                theme: 'colored', //como o alerta deve ser exibido  
+                progress: undefined,
+            });
             history.push("/login")
     
         }
@@ -42,7 +53,16 @@ function DeletarPostagem(){
                 'Authorization': token
               }
             });
-            alert('Postagem deletada com sucesso');
+            toast.success('Postagem deletada com sucesso', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+                draggable: false, //mover a notificação de local
+                theme: 'colored', //como o alerta deve ser exibido  
+                progress: undefined,
+            });
           }
         
           function nao() {

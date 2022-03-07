@@ -7,6 +7,8 @@ import './ListaPostagem.css';
 import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import {toast} from 'react-toastify';
+
 
 
 function ListaPostagem() {
@@ -18,7 +20,16 @@ function ListaPostagem() {
 
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado")
+        toast.error('Você precisa estar logado', {
+        position: 'top-right',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+        draggable: false, //mover a notificação de local
+        theme: 'colored', //como o alerta deve ser exibido  
+        progress: undefined,
+    });
       history.push("/login")
 
     }

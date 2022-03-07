@@ -6,6 +6,8 @@ import Tema from '../../../models/Tema';
 import useLocalStorage from 'react-use-localstorage';
 import Postagem from '../../../models/Postagem';
 import { busca, buscaId, post, put } from '../../../services/Service';
+import {toast} from 'react-toastify';
+
 
 function CadastroPost() {
     let history = useHistory();
@@ -15,7 +17,16 @@ function CadastroPost() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.error('Você precisa estar logado!', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+                draggable: false, //mover a notificação de local
+                theme: 'colored', //como o alerta deve ser exibido  
+                progress: undefined,
+            });
             history.push("/login")
 
         }
@@ -82,14 +93,32 @@ function CadastroPost() {
                     'Authorization': token
                 }
             })
-            alert('Postagem atualizada com sucesso');
+            toast.success('Postagem atualizada com sucesso', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+                draggable: false, //mover a notificação de local
+                theme: 'colored', //como o alerta deve ser exibido  
+                progress: undefined,
+            });
         } else {
             post(`/postagens`, postagem, setPostagem, {
                 headers: {
                     'Authorization': token
                 }
             })
-            alert('Postagem cadastrada com sucesso');
+            toast.success('Postagem cadastrada com sucesso', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+                draggable: false, //mover a notificação de local
+                theme: 'colored', //como o alerta deve ser exibido  
+                progress: undefined,
+            });
         }
         back()
 

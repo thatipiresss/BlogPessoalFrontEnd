@@ -7,6 +7,7 @@ import { fontWeight } from "@mui/system";
 import { useDispatch, useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
 import {addToken} from "../../../store/tokens/actions";
+import {toast} from 'react-toastify';
 
  
 function Navbar(){
@@ -19,7 +20,16 @@ function Navbar(){
 
     function goLogout(){
         dispatch(addToken(''));
-        alert('Usuário deslogado!')
+        toast.info('Usuário deslogado!', {
+            position: 'top-right',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+            draggable: false, //mover a notificação de local
+            theme: 'colored', //como o alerta deve ser exibido  
+            progress: undefined,
+        });
         history.push('/login')
     }
 

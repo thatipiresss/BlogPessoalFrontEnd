@@ -6,6 +6,8 @@ import './CadastroUsuario.css';
 import Container from '@mui/material/Container';
 import { Grid, Box, Typography, Button, TextField } from '@material-ui/core';
 import {Link } from 'react-router-dom';
+import {toast} from 'react-toastify';
+
 
 function CadastroUsuario(){
     let history = useHistory();
@@ -48,9 +50,27 @@ function CadastroUsuario(){
         e.preventDefault()
         if(confirmarSenha == user.senha){
             cadastroUsuario('/usuarios/cadastrar', user, setUserResult)
-            alert('Cadastro realizado com sucesso!')
+                toast.success('Cadastro realizado com sucesso!', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+              draggable: false, //mover a notificação de local
+              theme: 'colored', //como o alerta deve ser exibido  
+              progress: undefined,
+            });
         }else{
-            alert('Dados inválidos! Verifique se confirmou a senha corretamente, ou, se já tem um cadastro conosco!')
+                toast.error('Dados inválidos! Verifique se confirmou a senha corretamente, ou, se já tem um cadastro conosco!', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+              draggable: false, //mover a notificação de local
+              theme: 'colored', //como o alerta deve ser exibido  
+              progress: undefined,
+            });
         }
     }
     return(

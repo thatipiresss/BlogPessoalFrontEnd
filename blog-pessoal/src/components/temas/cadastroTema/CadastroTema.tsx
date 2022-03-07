@@ -5,6 +5,8 @@ import './CadastroTema.css';
 import useLocalStorage from 'react-use-localstorage';
 import Tema from '../../../models/Tema';
 import { buscaId, post, put } from '../../../services/Service';
+import {toast} from 'react-toastify';
+
 
 
 function CadastroTema() {
@@ -18,7 +20,16 @@ function CadastroTema() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+                toast.error('Você precisa estar logado', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+                draggable: false, //mover a notificação de local
+                theme: 'colored', //como o alerta deve ser exibido  
+                progress: undefined,
+            });
             history.push("/login")
     
         }
@@ -58,14 +69,34 @@ function CadastroTema() {
                         'Authorization': token
                     }
                 })
-                alert('Tema atualizado com sucesso');
+                
+                toast.success('Tema atualizado com sucesso', {
+                    position: 'top-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+                    draggable: false, //mover a notificação de local
+                    theme: 'colored', //como o alerta deve ser exibido  
+                    progress: undefined,
+                });
             } else {
                 post(`/tema`, tema, setTema, {
                     headers: {
                         'Authorization': token
                     }
                 })
-                alert('Tema cadastrado com sucesso');
+               
+                    toast.success('Tema cadastrado com sucesso', {
+                    position: 'top-right',
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+                    draggable: false, //mover a notificação de local
+                    theme: 'colored', //como o alerta deve ser exibido  
+                    progress: undefined,
+                });
             }
             back()
     
@@ -89,3 +120,4 @@ function CadastroTema() {
 }
 
 export default CadastroTema;
+

@@ -6,6 +6,8 @@ import UserLogin from '../../models/UserLogin';
 import './Login.css';
 import { useDispatch } from 'react-redux';
 import {addToken} from '../../store/tokens/actions';
+import {toast} from 'react-toastify';
+
 
 function Login() {
     let history = useHistory();
@@ -45,9 +47,27 @@ function Login() {
         try{
            await login('/usuarios/logar', userLogin, setToken)
             
-            alert('Usuário logado!');
+                toast.success('Usuário logado!', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+                draggable: false, //mover a notificação de local
+                theme: 'colored', //como o alerta deve ser exibido  
+                progress: undefined,
+            });
         }catch(error){
-            alert('Dados inválidos! Verifique se os dados estão corretos, ou, crie seu cadastro!')
+                toast.error('Dados inválidos! Verifique se os dados estão corretos, ou, crie seu cadastro!', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+                draggable: false, //mover a notificação de local
+                theme: 'colored', //como o alerta deve ser exibido  
+                progress: undefined,
+            });
 
         }
 

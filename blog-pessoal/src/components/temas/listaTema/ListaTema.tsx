@@ -6,6 +6,8 @@ import './ListaTema.css';
 import useLocalStorage from 'react-use-localstorage';
 import {useHistory} from 'react-router-dom';
 import {busca} from '../../../services/Service';
+import {toast} from 'react-toastify';
+
 
 function ListaTema(){
     const [temas, setTema] = useState<Tema[]>([])
@@ -14,7 +16,17 @@ function ListaTema(){
 
     useEffect(()=>{
         if (token == ''){
-            alert('Você precisa estar logado!')
+            toast.error('Você precisa estar logado', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
+              draggable: false, //mover a notificação de local
+              theme: 'colored', //como o alerta deve ser exibido  
+              progress: undefined,
+            });
+            
             history.push('/login')
         }
     }, [token])
