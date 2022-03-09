@@ -62,6 +62,14 @@ function Navbar(){
                     </Typography>
                 </Box>
             </Link>
+
+            <Link to ='/cadastroPostagem' className='text-decorator-none'>
+                <Box mx={2} className='cursor'>
+                    <Typography variant="h6"  style={{color: "#009432", fontWeight: 'bold'}}>
+                    Cadastrar Postagem
+                    </Typography>
+                </Box>
+            </Link>
             
             <Link to= '/temas' className='text-decorator-none'>
                 <Box mx={2} className='cursor'>
@@ -71,7 +79,7 @@ function Navbar(){
                 </Box>
             </Link>
             
-            <Link to ='/formularioTema' className='text-decorator-none'>
+            <Link to ='/cadastroTema' className='text-decorator-none'>
                 <Box mx={2} className='cursor'>
                     <Typography variant="h6"  style={{color: "#009432", fontWeight: 'bold'}}>
                     Cadastrar tema
