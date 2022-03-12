@@ -13,11 +13,12 @@ import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function CadastroPost() {
     let history = useHistory();
-    const { id } = useParams<{ id: string }>();
+    const { id } = useParams<{ id: string }>()    
     const [temas, setTemas] = useState<Temas[]>([])
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state)=> state.tokens
     );
+  
 
     useEffect(() => {
         if (token == "") {
