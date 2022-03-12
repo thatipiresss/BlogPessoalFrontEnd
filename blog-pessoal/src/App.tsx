@@ -3,8 +3,8 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'; //tem 
 import Navbar from './components/estaticos/navbar/Navbar';
 import Footer from './components/estaticos/footer/Footer';
 import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
-import ListaPostagem from './components/postagens/listaPostagem/ListaPostagem';
-import ListaTema from './components/temas/listaTema/ListaTema';
+import ListaPostagem from './components/postagens/listaPostagens/ListaPostagens';
+import ListaTema from './components/temas/listaTemas/ListaTemas';
 
 
 import Home from './paginas/home/Home';
@@ -12,12 +12,14 @@ import Home from './paginas/home/Home';
   import Login from './paginas/login/Login';
 import CadastroPost from './components/postagens/cadastroPost/CadastroPost';
 import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
-import CadastroTema from './components/temas/cadastroTema/CadastroTema';
+import CadastroTemas from './components/temas/cadastroTema/CadastroTema';
 import DeletarTema from './components/temas/deletarTema/DeletarTema';
 import {Provider} from 'react-redux';
 import store from './store/store';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ListaTemas from './components/temas/listaTemas/ListaTemas';
+import ListaPostagens from './components/postagens/listaPostagens/ListaPostagens';
 
 
 function App() {
@@ -46,30 +48,30 @@ function App() {
           </Route>
 
           <Route path='/temas'>
-            <ListaTema />
+            <ListaTemas />
           </Route>
 
           <Route path='/postagens'>
-            <ListaPostagem />
+            <ListaPostagens />
           </Route>
 
-          <Route exact path='/cadastroPostagem'>
+          <Route exact path='/formularioPostagens'>
             <CadastroPost/>
           </Route>
 
-          <Route exact path='/cadastroPostagem/:id'>
+          <Route exact path='/formularioPostagens/:id'>
            <CadastroPost/>
           </Route>
 
-          <Route exact path='/cadastroTema'>
-            <CadastroTema/>
+          <Route exact path='/formularioTemas'>
+            <CadastroTemas/>
           </Route>
 
-          <Route exact path='/cadastroTema/:id'>
-            <CadastroTema/>
+          <Route exact path='/formularioTemas/:id'>
+            <CadastroTemas/>
           </Route>
 
-          <Route exact path='/deletarPostagem'>
+          <Route exact path='/deletarPostagens'>
             <DeletarPostagem/>
           </Route>
 
@@ -77,7 +79,11 @@ function App() {
             <DeletarPostagem/>
           </Route>
 
-          <Route exact path='/deletarTema/:id'>
+          <Route exact path='/deletarTema'>
+            <DeletarTema/>
+          </Route>
+
+          <Route exact path='/deletarTemas/:id'>
             <DeletarTema/>
           </Route>
 

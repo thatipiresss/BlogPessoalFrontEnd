@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {AppBar, Tab, Tabs, Box, Typography} from '@material-ui/core';
 import {TabContext, TabPanel} from '@material-ui/lab';
 
-import ListaPostagem from '../listaPostagem/ListaPostagem';
+import ListaPostagem from '../listaPostagens/ListaPostagens';
 import './TabPostagem.css';
 
 function TabPostagem(){

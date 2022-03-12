@@ -2,14 +2,14 @@ import React, {useState, useEffect, ChangeEvent} from 'react'
 import { Container, Typography, TextField, Button } from "@material-ui/core"
 import {useHistory, useParams } from 'react-router-dom'
 import './CadastroTema.css';
-import Tema from '../../../models/Tema';
+import Tema from '../../../models/Temas';
 import { buscaId, post, put } from '../../../services/Service';
 import {toast} from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
-
-
-
+ 
+ 
+ 
 function CadastroTema() {
     let history = useHistory();
     const { id } = useParams<{id: string}>();
@@ -20,7 +20,7 @@ function CadastroTema() {
         id: 0,
         descricao: ''
     })
-
+ 
     useEffect(() => {
         if (token == "") {
                 toast.error('Você precisa estar logado', {
@@ -34,45 +34,45 @@ function CadastroTema() {
                 progress: undefined,
             });
             history.push("/login")
-    
+   
         }
     }, [token])
-
+ 
     useEffect(() =>{
         if(id !== undefined){
             findById(id)
         }
     }, [id])
-
+ 
     async function findById(id: string) {
-        buscaId(`/tema/${id}`, setTema, {
+        buscaId(`/temas/${id}`, setTema, {
             headers: {
               'Authorization': token
             }
           })
         }
-
+ 
         function updatedTema(e: ChangeEvent<HTMLInputElement>) {
-
+ 
             setTema({
                 ...tema,
                 [e.target.name]: e.target.value,
             })
-    
+   
         }
-        
+       
         async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
             e.preventDefault()
-            console.log("tema " + JSON.stringify(tema))
-    
+            console.log('tema' + JSON.stringify(tema))
+   
             if (id !== undefined) {
                 console.log(tema)
-                put(`/tema`, tema, setTema, {
+                put(`/temas`, tema, setTema, {
                     headers: {
                         'Authorization': token
                     }
                 })
-                
+               
                 toast.success('Tema atualizado com sucesso', {
                     position: 'top-right',
                     autoClose: 5000,
@@ -84,7 +84,7 @@ function CadastroTema() {
                     progress: undefined,
                 });
             } else {
-                post(`/tema`, tema, setTema, {
+                post(`/temas`, tema, setTema, {
                     headers: {
                         'Authorization': token
                     }
@@ -102,13 +102,13 @@ function CadastroTema() {
                 });
             }
             back()
-    
+   
         }
-    
+   
         function back() {
             history.push('/temas')
         }
-  
+ 
     return (
         <Container maxWidth="sm" className="topo">
             <form onSubmit={onSubmit}>
@@ -121,6 +121,5 @@ function CadastroTema() {
         </Container>
     )
 }
-
+ 
 export default CadastroTema;
-

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Box, Card, CardContent, Typography, CardActions, Button} from '@material-ui/core';
 import './DeletarPostagem.css';
 import {useHistory, useParams} from 'react-router-dom';
-import Postagem from '../../../models/Postagem';
+import Postagem from '../../../models/Postagens';
 import { buscaId, deleteId } from '../../../services/Service';
 import {toast} from 'react-toastify';
 import { useSelector } from 'react-redux';
@@ -17,6 +17,7 @@ function DeletarPostagem(){
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state)=> state.tokens
     );
+    
 
     useEffect(() => {
         if (token == "") {
@@ -79,7 +80,7 @@ function DeletarPostagem(){
                     <CardContent>
                         <Box justifyContent='center'>
                             <Typography color='textSecondary' gutterBottom>
-                                Deseja deletar a postagem:
+                                Deseja deletar essa postagem?
                             </Typography>
                             <Typography color='textSecondary'>
                                 {post?.titulo}
