@@ -4,32 +4,29 @@ import './CadastroPost.css';
 import { useHistory, useParams } from 'react-router-dom';
 import Temas from '../../../models/Temas';
 import Postagens from '../../../models/Postagens';
-
 import { busca, buscaId, post, put } from '../../../services/Service';
-import {toast} from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
-
+import { toast } from 'react-toastify';
 
 function CadastroPost() {
     let history = useHistory();
-    const { id } = useParams<{ id: string }>()    
+    const { id } = useParams<{ id: string }>();
     const [temas, setTemas] = useState<Temas[]>([])
     const token = useSelector<TokenState, TokenState["tokens"]>(
-        (state)=> state.tokens
-    );
-  
+        (state) => state.tokens
+      );
 
     useEffect(() => {
         if (token == "") {
-            toast.error('Você precisa estar logado!', {
-                position: 'top-right',
+            toast.error('Você precisa estar logado', {
+                position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
                 draggable: false, //mover a notificação de local
-                theme: 'colored', //como o alerta deve ser exibido  
+                theme: "colored", //como o alerta deve ser exibido  
                 progress: undefined,
             });
             history.push("/login")
@@ -99,13 +96,13 @@ function CadastroPost() {
                 }
             })
             toast.success('Postagem atualizada com sucesso', {
-                position: 'top-right',
+                position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
-                draggable: false, //mover a notificação de local
-                theme: 'colored', //como o alerta deve ser exibido  
+                pauseOnHover: true,
+                draggable: false,
+                theme: "colored",
                 progress: undefined,
             });
         } else {
@@ -115,13 +112,13 @@ function CadastroPost() {
                 }
             })
             toast.success('Postagem cadastrada com sucesso', {
-                position: 'top-right',
+                position: "top-right",
                 autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
-                pauseOnHover: true, //se colocar o mouse em cima, segurar o alerta
-                draggable: false, //mover a notificação de local
-                theme: 'colored', //como o alerta deve ser exibido  
+                pauseOnHover: true,
+                draggable: false,
+                theme: "colored",
                 progress: undefined,
             });
         }
@@ -139,14 +136,13 @@ function CadastroPost() {
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro postagem</Typography>
                 <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
                 <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
-                
 
                 <FormControl >
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
-                        onChange={(e) => buscaId(`/tema/${e.target.value}`, setTema, {
+                        onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
                             headers: {
                                 'Authorization': token
                             }
